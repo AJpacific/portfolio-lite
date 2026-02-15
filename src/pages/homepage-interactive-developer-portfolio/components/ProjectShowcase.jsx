@@ -3,233 +3,134 @@ import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
 
 const ProjectShowcase = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState('All');
 
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform Backend",
-      category: "Backend Development",
-      description: `Developed a production-ready REST API for modern e-commerce platforms using Spring Boot 3 and Java 21. Implemented secure JWT-based authentication, role-based access control (Admin, Manager, Customer), and password encryption with BCrypt. Features include user management, product CRUD, shopping cart, orders, payments, inventory management, and robust API security.`,
-      technologies: [
-        "Spring Boot",
-        "Java",
-        "Spring Security",
-        "Spring Data JPA",
-        "MySQL",
-        "Hibernate",
-        "JWT",
-        "BCrypt",
-        "Maven",
-        "REST API Design"
-      ],
-      securityFeatures: [
-        "JWT Authentication",
-        "Role-Based Access Control",
-        "BCrypt Password Hashing",
-        "Input Validation",
-        "Error Handling",
-        "CSRF Protection Disabled for API",
-        "Stateless Sessions"
-      ],
-      githubUrl: "https://github.com/AJpacific/E-Commerce-Backend"
+      title: 'E-Commerce Platform Backend',
+      category: 'Backend Development',
+      description: 'Production-ready REST API for modern e-commerce platforms using Spring Boot 3 and Java 21. Features JWT authentication, role-based access control, and complete order management.',
+      technologies: ['Spring Boot', 'Java', 'Spring Security', 'MySQL', 'JWT', 'REST API'],
+      githubUrl: 'https://github.com/AJpacific/E-Commerce-Backend',
     },
-
     {
       id: 2,
-      title: "LMS Backend",
-      category: "Backend Development",
-      description: `Developed a comprehensive Learning Management System (LMS) using Spring Boot and Java. Implemented JWT-based authentication, role-based access control (Student, Instructor, Approver), and a secure REST API architecture. Features include user management, course creation/approval, enrollments, progress tracking, and file upload for course materials.`,
-      technologies: [
-        "Java",
-        "Spring Boot",
-        "Spring Security",
-        "Spring Data JPA",
-        "MySQL",
-        "H2 Database",
-        "Hibernate",
-        "JWT",
-        "BCrypt",
-        "SpringDoc OpenAPI",
-        "JUnit 5"
-      ],
-      securityFeatures: [
-        "JWT Authentication",
-        "Role-Based Access Control",
-        "Password Encryption (BCrypt)",
-        "CORS Configuration",
-        "Secure REST API Endpoints"
-      ],
-      githubUrl: "https://github.com/AJpacific/LMS-Backend"
+      title: 'LMS Backend',
+      category: 'Backend Development',
+      description: 'Comprehensive Learning Management System with JWT-based authentication, role-based access control, course management, enrollments, and progress tracking.',
+      technologies: ['Java', 'Spring Boot', 'Spring Security', 'MySQL', 'JWT', 'JUnit 5'],
+      githubUrl: 'https://github.com/AJpacific/LMS-Backend',
     },
     {
       id: 8,
-      title: "API Rate Limiter",
-      category: "Backend Development",
-      description: `A production-grade, distributed API rate limiter built with Spring Boot and Redis. It implements two industry-standard algorithms — Sliding Window Log and Token Bucket — selectable per-endpoint via a simple annotation, with full atomicity guaranteed through Redis Lua scripting.`,
-      technologies: [
-        "Java 21",
-        "Spring Boot",
-        "Redis",
-        "Lua",
-        "Docker Compose",
-        "Spring AOP"
-      ],
-      securityFeatures: [
-        "Distributed State Management",
-        "Atomic Operations (Lua)",
-        "Fail-Safe Design",
-        "Rate Limiting Headers"
-      ],
-      githubUrl: "https://github.com/AJpacific/api-rate-limiter"
+      title: 'API Rate Limiter',
+      category: 'Backend Development',
+      description: 'Production-grade distributed API rate limiter with Sliding Window Log and Token Bucket algorithms, atomic operations via Redis Lua scripting.',
+      technologies: ['Java 21', 'Spring Boot', 'Redis', 'Lua', 'Docker', 'Spring AOP'],
+      githubUrl: 'https://github.com/AJpacific/api-rate-limiter',
     },
     {
       id: 6,
-      title: "Real-Time Chat Backend",
-      category: "Backend Development",
-      description: `A robust, scalable, and secure backend infrastructure designed for modern real-time messaging applications. Built with Spring Boot 4.0 and Java 21, this system delivers low-latency communication through WebSocket (STOMP over SockJS) for bi-directional, event-driven communication. Features include JWT-based authentication, RESTful APIs for resource management, real-time message delivery, and reliable PostgreSQL data persistence with connection pooling via HikariCP.`,
-      technologies: [
-        "Spring Boot 4.0",
-        "Java 21",
-        "WebSocket",
-        "STOMP",
-        "SockJS",
-        "PostgreSQL",
-        "Spring Security",
-        "JWT (JJWT 0.13.0)",
-        "Spring Data JPA",
-        "Hibernate",
-        "HikariCP",
-        "Maven",
-        "H2 Database (Testing)"
-      ],
-      securityFeatures: [
-        "JWT Authentication (Stateless)",
-        "WebSocket Security",
-        "Connection Pooling (HikariCP)",
-        "ACID Compliance",
-        "Asynchronous Processing",
-        "Horizontal Scalability",
-        "Virtual Threads Ready (Java 21)"
-      ],
-      githubUrl: "https://github.com/AJpacific/chat-app-backend"
+      title: 'Real-Time Chat Backend',
+      category: 'Backend Development',
+      description: 'Scalable real-time messaging backend with WebSocket (STOMP over SockJS), JWT authentication, and PostgreSQL persistence with HikariCP.',
+      technologies: ['Spring Boot 4.0', 'Java 21', 'WebSocket', 'PostgreSQL', 'JWT', 'HikariCP'],
+      githubUrl: 'https://github.com/AJpacific/chat-app-backend',
     },
     {
       id: 3,
-      title: "Network Vulnerability Scanner",
-      category: "Cybersecurity",
-      description: `A Python-based network vulnerability scanner that detects open TCP ports, identifies running services, and checks for known vulnerabilities.`,
-      technologies: ["Python", "Nmap", "Requests", "BeautifulSoup4"],
-      securityFeatures: ["TCP Port Scanning", "Banner Grabbing", "Vulnerability Lookup", "Structured JSON Reports"],
-      githubUrl: "https://github.com/AJpacific/Network-Vulnerability-Scanner"
+      title: 'Network Vulnerability Scanner',
+      category: 'Cybersecurity',
+      description: 'Python-based network vulnerability scanner that detects open TCP ports, identifies running services, and checks for known vulnerabilities.',
+      technologies: ['Python', 'Nmap', 'Requests', 'BeautifulSoup4'],
+      githubUrl: 'https://github.com/AJpacific/Network-Vulnerability-Scanner',
     },
     {
       id: 4,
-      title: "WiFi DoS",
-      category: "Cybersecurity",
-      description: `A Python-based wireless network analysis and deauthentication (DoS) tool leveraging the Aircrack-ng suite. It scans nearby WiFi networks, lists them in real-time, and allows controlled deauth attacks on selected targets. Designed purely for educational use to demonstrate wireless security concepts in authorized environments.`,
-      technologies: [
-        "Python",
-        "Aircrack-ng",
-        "Airodump-ng",
-        "Aireplay-ng",
-        "Airmon-ng",
-        "Linux (Kali)"
-      ],
-      securityFeatures: [
-        "WiFi Adapter Detection",
-        "Privilege Check",
-        "Network Scanning",
-        "Duplicate Filtering",
-        "Monitor Mode",
-        "Deauthentication Attack"
-      ],
-      githubUrl: "https://github.com/AJpacific/DoS-WiFi"
+      title: 'WiFi DoS Tool',
+      category: 'Cybersecurity',
+      description: 'Wireless network analysis and deauthentication tool leveraging Aircrack-ng suite for educational security testing in authorized environments.',
+      technologies: ['Python', 'Aircrack-ng', 'Linux (Kali)'],
+      githubUrl: 'https://github.com/AJpacific/DoS-WiFi',
     },
     {
       id: 5,
-      title: "HomeBite – Food Delivery Web App",
-      category: "Frontend Development",
-      description: `A dynamic and responsive food delivery web application built using HTML, CSS, and JavaScript.`,
-      technologies: ["JavaScript", "HTML", "CSS"],
-      securityFeatures: ["HTTPS", "Form Validation", "Input Sanitization", "Secure Storage (Local/Session)"],
-      githubUrl: "https://github.com/AJpacific/HomeBite",
+      title: 'HomeBite — Food Delivery',
+      category: 'Frontend Development',
+      description: 'Dynamic and responsive food delivery web application with modern UI and clean user experience.',
+      technologies: ['JavaScript', 'HTML', 'CSS'],
+      githubUrl: 'https://github.com/AJpacific/HomeBite',
     },
     {
       id: 7,
-      title: "Rigveda Digital Explorer",
-      category: "Frontend Development",
-      description: `A modern, responsive web application for exploring, searching, and studying the ancient texts of the Rigveda. This application provides a user-friendly interface to delve into the 10 Mandalas, 1,028 Suktas, and 10,552 verses of this foundational Vedic Sanskrit text. Features include hierarchical navigation, universal search across all verses, random verse discovery, an in-built Sanskrit dictionary, and an integrated AI assistant for deeper insights.`,
-      technologies: [
-        "Next.js (App Router)",
-        "TypeScript",
-        "React",
-        "Tailwind CSS",
-        "ESLint",
-        "API Routes",
-        "AI Integration",
-        "JSON Data Processing"
-      ],
-      securityFeatures: [
-        "Server-Side Rendering (SSR)",
-        "API Route Protection",
-        "Input Sanitization",
-        "Responsive Design",
-        "SEO Optimized"
-      ],
-      githubUrl: "https://github.com/AJpacific/rigveda",
-      liveUrl: "https://rigveda-snh2.vercel.app/"
-    }
+      title: 'Rigveda Digital Explorer',
+      category: 'Frontend Development',
+      description: 'Modern web app for exploring the Rigveda with hierarchical navigation, universal search, random verse discovery, Sanskrit dictionary, and AI assistant.',
+      technologies: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'AI Integration'],
+      githubUrl: 'https://github.com/AJpacific/rigveda',
+      liveUrl: 'https://rigveda-snh2.vercel.app/',
+    },
   ];
 
-  const categories = ["All", ...new Set(projects.map(p => p.category))];
+  const categories = ['All', ...new Set(projects.map((p) => p.category))];
+
+  const filteredProjects =
+    activeCategory === 'All'
+      ? projects
+      : projects.filter((p) => p.category === activeCategory);
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 },
+    },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    },
   };
 
-  const filteredProjects = activeCategory === "All"
-    ? projects
-    : projects.filter(p => p.category === activeCategory);
-
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Title */}
+    <div className="max-w-apple-lg mx-auto px-6">
+      {/* Header */}
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: '-80px' }}
         variants={containerVariants}
-        className="text-center mb-12"
+        className="text-center mb-16"
       >
-        <motion.div variants={itemVariants}>
-          <h2 className="text-4xl md:text-5xl font-bold text-text-light mb-6">
-            <span className="text-cyber-green font-mono">&lt;</span>
-            Project Showcase
-            <span className="text-cyber-green font-mono">/&gt;</span>
-          </h2>
-          <p className="text-xl text-text-muted max-w-3xl mx-auto">
-            Explore my work across different domains including backend, frontend, and cybersecurity.
-          </p>
-        </motion.div>
+        <motion.h2
+          variants={itemVariants}
+          className="text-section-sm md:text-section font-bold text-apple-gray-800 mb-4"
+        >
+          Featured Projects
+        </motion.h2>
+        <motion.p
+          variants={itemVariants}
+          className="text-body-lg text-apple-gray-400 max-w-2xl mx-auto"
+        >
+          Explore my work across backend development, frontend, and cybersecurity.
+        </motion.p>
       </motion.div>
 
       {/* Category Filter */}
-      <div className="flex justify-center mb-8">
-        <div className="flex flex-wrap justify-center space-x-2 bg-dark-surface/50 rounded-lg p-2 border border-primary/20 w-full">
-          {categories.map(cat => (
+      <div className="flex justify-center mb-12">
+        <div className="inline-flex items-center bg-apple-gray-50 rounded-full p-1 gap-1">
+          {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-lg font-mono text-sm transition-all duration-300 ${activeCategory === cat
-                ? 'bg-primary text-white shadow-cyber'
-                : 'text-text-muted hover:text-cyber-green hover:bg-primary/10'
+              className={`px-5 py-2 rounded-full text-body-sm font-medium transition-all duration-300 ${activeCategory === cat
+                  ? 'bg-white text-apple-gray-800 shadow-apple-sm'
+                  : 'text-apple-gray-500 hover:text-apple-gray-700'
                 }`}
             >
               {cat}
@@ -243,71 +144,62 @@ const ProjectShowcase = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid md:grid-cols-2 gap-10"
+        key={activeCategory}
+        className="grid md:grid-cols-2 gap-6"
       >
-        {filteredProjects.map(project => (
+        {filteredProjects.map((project) => (
           <motion.div
             key={project.id}
             variants={itemVariants}
-            className="bg-dark-surface/50 rounded-lg p-6 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-medium"
+            className="card-apple p-8 flex flex-col"
           >
-            <div className="flex items-center space-x-3 mb-3">
-              <div className="w-3 h-3 bg-cyber-green rounded-full animate-pulse"></div>
-              <span className="text-cyber-green font-mono text-sm">
-                {project.category}
-              </span>
-            </div>
-            <h3 className="text-2xl font-bold text-text-light mb-2">
+            {/* Category */}
+            <span className="text-caption font-medium text-apple-blue mb-3 uppercase tracking-wider">
+              {project.category}
+            </span>
+
+            {/* Title */}
+            <h3 className="text-subtitle-sm font-semibold text-apple-gray-800 mb-3">
               {project.title}
             </h3>
-            <p className="text-text-muted mb-4">{project.description}</p>
+
+            {/* Description */}
+            <p className="text-body text-apple-gray-500 mb-5 flex-grow leading-relaxed">
+              {project.description}
+            </p>
 
             {/* Technologies */}
-            <h4 className="text-lg font-semibold text-text-light mb-2 font-mono">
-              <Icon name="Code" size={20} className="inline mr-2 text-cyber-green" />
-              Technologies Used
-            </h4>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.technologies.map((tech, idx) => (
-                <span key={idx} className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full text-sm font-mono">
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1 bg-apple-gray-50 text-apple-gray-500 rounded-full text-caption font-medium"
+                >
                   {tech}
                 </span>
               ))}
             </div>
 
-            {/* Security Features */}
-            <h4 className="text-lg font-semibold text-text-light mb-2 font-mono">
-              <Icon name="Shield" size={20} className="inline mr-2 text-cyber-green" />
-              Security Implementation
-            </h4>
-            <ul className="mb-4 space-y-1">
-              {project.securityFeatures.map((feature, idx) => (
-                <li key={idx} className="flex items-center space-x-2 text-text-muted">
-                  <Icon name="CheckCircle" size={16} className="text-cyber-green" />
-                  <span className="text-sm">{feature}</span>
-                </li>
-              ))}
-            </ul>
-
             {/* Links */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex items-center gap-4">
               <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-dark-surface border border-primary/20 text-text-light px-6 py-2 rounded-lg font-mono hover:bg-primary/10 hover:border-primary/40 transition-all duration-300"
+                className="inline-flex items-center gap-2 text-body-sm font-medium text-apple-blue hover:text-apple-blue-hover transition-colors duration-300"
               >
-                <Icon name="Github" size={20} />
+                <Icon name="Github" size={18} />
                 <span>View Code</span>
+                <Icon name="ArrowRight" size={14} />
               </a>
               {project.liveUrl && (
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-primary border border-primary text-white px-6 py-2 rounded-lg font-mono hover:bg-primary/80 transition-all duration-300 shadow-cyber"
+                  className="inline-flex items-center gap-2 text-body-sm font-medium text-apple-gray-500 hover:text-apple-gray-800 transition-colors duration-300"
                 >
-                  <Icon name="ExternalLink" size={20} />
+                  <Icon name="ExternalLink" size={18} />
                   <span>Live Demo</span>
                 </a>
               )}

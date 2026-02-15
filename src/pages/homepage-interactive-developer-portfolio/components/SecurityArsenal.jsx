@@ -1,192 +1,101 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 
 const SecurityArsenal = () => {
-  const [activeCategory, setActiveCategory] = useState('tools');
-
-  const securityData = {
-    tools: [
-      {
-        name: "Linux",
-        description: "Operating system for security testing and administration",
-        icon: "Terminal",
-        proficiency: 75,
-        category: "Operating System"
-      },
-      {
-        name: "Nmap",
-        description: "Network discovery and security auditing tool",
-        icon: "Search",
-        proficiency: 80,
-        category: "Network Security"
-      },
-      {
-        name: "OpenVAS",
-        description: "Open-source vulnerability scanning framework",
-        icon: "AlertTriangle",
-        proficiency: 80,
-        category: "Vulnerability Assessment"
-      },
-      {
-        name: "Metasploit",
-        description: "Penetration testing and exploit development framework",
-        icon: "Target",
-        proficiency: 70,
-        category: "Penetration Testing"
-      },
-      {
-        name: "John the Ripper",
-        description: "Password cracking and security testing tool",
-        icon: "Key",
-        proficiency: 80,
-        category: "Password Security"
-      },
-      {
-        name: "Hashcat",
-        description: "Advanced password recovery and hash cracking",
-        icon: "Lock",
-        proficiency: 80,
-        category: "Password Security"
-      },
-      {
-        name: "SQLmap",
-        description: "Automated SQL injection and database takeover tool",
-        icon: "Database",
-        proficiency: 70,
-        category: "Database Security"
-      },
-      {
-        name: "Gobuster",
-        description: "Directory and file brute-forcing tool",
-        icon: "Folder",
-        proficiency: 70,
-        category: "Web Enumeration"
-      },
-      {
-        name: "Gophish",
-        description: "Phishing campaign simulation and training platform",
-        icon: "Mail",
-        proficiency: 75,
-        category: "Social Engineering"
-      },
-      {
-        name: "Aircrack-ng",
-        description: "Wi-Fi network security testing suite",
-        icon: "Wifi",
-        proficiency: 80,
-        category: "Wireless Security"
-      },
-      {
-        name: "Burp Suite",
-        description: "Web application vulnerability scanning and exploitation",
-        icon: "Shield",
-        proficiency: 70,
-        category: "Web Security"
-      },
-      {
-        name: "Web Exploits: SQL Injection",
-        description: "Manual and automated SQL Injection exploitation",
-        icon: "Code",
-        proficiency: 70,
-        category: "Web Exploitation"
-      },
-      {
-        name: "Python (Scripting)",
-        description: "Automating security tasks and developing custom tools",
-        icon: "Code",
-        proficiency: 50,
-        category: "Programming"
-      }
-    ]
-  };
+  const tools = [
+    { name: 'Linux', description: 'Operating system for security testing and administration', icon: 'Terminal', category: 'Operating System' },
+    { name: 'Nmap', description: 'Network discovery and security auditing tool', icon: 'Search', category: 'Network Security' },
+    { name: 'OpenVAS', description: 'Open-source vulnerability scanning framework', icon: 'AlertTriangle', category: 'Vulnerability Assessment' },
+    { name: 'Metasploit', description: 'Penetration testing and exploit development framework', icon: 'Target', category: 'Penetration Testing' },
+    { name: 'John the Ripper', description: 'Password cracking and security testing tool', icon: 'Key', category: 'Password Security' },
+    { name: 'Hashcat', description: 'Advanced password recovery and hash cracking', icon: 'Lock', category: 'Password Security' },
+    { name: 'SQLmap', description: 'Automated SQL injection and database takeover tool', icon: 'Database', category: 'Database Security' },
+    { name: 'Gobuster', description: 'Directory and file brute-forcing tool', icon: 'Folder', category: 'Web Enumeration' },
+    { name: 'Gophish', description: 'Phishing campaign simulation and training platform', icon: 'Mail', category: 'Social Engineering' },
+    { name: 'Aircrack-ng', description: 'Wi-Fi network security testing suite', icon: 'Wifi', category: 'Wireless Security' },
+    { name: 'Burp Suite', description: 'Web application vulnerability scanning and exploitation', icon: 'Shield', category: 'Web Security' },
+    { name: 'Wireshark', description: 'Network protocol analyzer for deep packet inspection and traffic analysis', icon: 'Search', category: 'Network Security' },
+    { name: 'SQL Injection', description: 'Manual and automated SQL injection discovery and exploitation techniques', icon: 'Database', category: 'Web Exploitation' },
+    { name: 'XSS Attacks', description: 'Cross-site scripting detection, payload crafting, and exploitation', icon: 'Code', category: 'Web Exploitation' },
+    { name: 'CSRF Attacks', description: 'Cross-site request forgery testing and mitigation analysis', icon: 'AlertTriangle', category: 'Web Exploitation' },
+    { name: 'Python Scripting', description: 'Automating security tasks and developing custom tools', icon: 'Code', category: 'Programming' },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
+      transition: { staggerChildren: 0.05 },
+    },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    },
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-apple-lg mx-auto px-6">
+      {/* Header */}
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: '-80px' }}
         variants={containerVariants}
-        className="text-center mb-12"
+        className="text-center mb-16"
       >
-        <motion.div variants={itemVariants}>
-          <h2 className="text-4xl md:text-5xl font-bold text-text-light mb-6">
-            <span className="text-cyber-green font-mono">&lt;</span>
-            Security Arsenal
-            <span className="text-cyber-green font-mono">/&gt;</span>
-          </h2>
-          <p className="text-xl text-text-muted max-w-3xl mx-auto">
-            Comprehensive cybersecurity expertise with professional tools for penetration testing, vulnerability assessment, and exploitation.
-          </p>
-        </motion.div>
+        <motion.h2
+          variants={itemVariants}
+          className="text-section-sm md:text-section font-bold text-apple-gray-800 mb-4"
+        >
+          Security Toolkit
+        </motion.h2>
+        <motion.p
+          variants={itemVariants}
+          className="text-body-lg text-apple-gray-400 max-w-2xl mx-auto"
+        >
+          Professional tools for penetration testing, vulnerability assessment, and security auditing.
+        </motion.p>
       </motion.div>
 
-      {/* Security Tools Display */}
+      {/* Tools Grid */}
       <motion.div
-        key="tools"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-60px' }}
+        variants={containerVariants}
+        className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
       >
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {securityData.tools.map((tool, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-dark-surface/50 rounded-lg p-6 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-medium"
-            >
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="p-2 bg-primary/10 rounded-lg">
-                  <Icon name={tool.icon} size={24} className="text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-text-light font-mono">
-                    {tool.name}
-                  </h3>
-                  <span className="text-sm text-text-muted">{tool.category}</span>
-                </div>
+        {tools.map((tool, index) => (
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            className="card-apple p-6 group"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-11 h-11 rounded-apple-sm bg-apple-gray-50 flex items-center justify-center text-apple-gray-500 group-hover:bg-apple-gray-800 group-hover:text-white transition-all duration-400 flex-shrink-0">
+                <Icon name={tool.icon} size={22} />
               </div>
-              <p className="text-text-muted mb-4 text-sm">
-                {tool.description}
-              </p>
-              <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-text-muted">Proficiency</span>
-                  <span className="text-sm font-mono text-cyber-green">{tool.proficiency}%</span>
-                </div>
-                <div className="w-full bg-dark-bg rounded-full h-2">
-                  <motion.div
-                    className="bg-gradient-to-r from-primary to-cyber-green h-2 rounded-full"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${tool.proficiency}%` }}
-                    transition={{ duration: 1, delay: index * 0.1 }}
-                  />
-                </div>
+              <div className="min-w-0">
+                <h3 className="text-body font-semibold text-apple-gray-800 mb-1">
+                  {tool.name}
+                </h3>
+                <span className="text-caption text-apple-blue font-medium">
+                  {tool.category}
+                </span>
+                <p className="text-body-sm text-apple-gray-400 mt-2 leading-relaxed">
+                  {tool.description}
+                </p>
               </div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+          </motion.div>
+        ))}
       </motion.div>
-
     </div>
   );
 };

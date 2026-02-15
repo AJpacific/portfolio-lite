@@ -7,160 +7,130 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Primary Colors
-        'primary': '#0F766E', // Core security expertise, trustworthy depth - teal-700
-        'primary-50': '#F0FDFA', // Lightest teal shade - teal-50
-        'primary-100': '#CCFBF1', // Light teal shade - teal-100
-        'primary-200': '#99F6E4', // Medium light teal shade - teal-200
-        'primary-500': '#14B8A6', // Medium teal shade - teal-500
-        'primary-600': '#0D9488', // Medium dark teal shade - teal-600
-        'primary-700': '#0F766E', // Primary teal shade - teal-700
-        'primary-800': '#115E59', // Dark teal shade - teal-800
-        'primary-900': '#134E4A', // Darkest teal shade - teal-900
-
-        // Secondary Colors
-        'secondary': '#1E40AF', // Technical innovation, reliable intelligence - blue-700
-        'secondary-50': '#EFF6FF', // Lightest blue shade - blue-50
-        'secondary-100': '#DBEAFE', // Light blue shade - blue-100
-        'secondary-200': '#BFDBFE', // Medium light blue shade - blue-200
-        'secondary-500': '#3B82F6', // Medium blue shade - blue-500
-        'secondary-600': '#2563EB', // Medium dark blue shade - blue-600
-        'secondary-700': '#1D4ED8', // Secondary blue shade - blue-700
-        'secondary-800': '#1E3A8A', // Dark blue shade - blue-800
-        'secondary-900': '#1E40AF', // Darkest blue shade - blue-900
-
-        // Accent Colors
-        'accent': '#059669', // Growth moments, positive security outcomes - emerald-600
-        'accent-50': '#ECFDF5', // Lightest emerald shade - emerald-50
-        'accent-100': '#D1FAE5', // Light emerald shade - emerald-100
-        'accent-200': '#A7F3D0', // Medium light emerald shade - emerald-200
-        'accent-500': '#10B981', // Medium emerald shade - emerald-500
-        'accent-600': '#059669', // Accent emerald shade - emerald-600
-        'accent-700': '#047857', // Dark emerald shade - emerald-700
-        'accent-800': '#065F46', // Darker emerald shade - emerald-800
-        'accent-900': '#064E3B', // Darkest emerald shade - emerald-900
-
-        // Background Colors
-        'background': '#FAFAFA', // Clean content canvas, professional clarity - gray-50
-        'surface': '#FFFFFF', // Elevated content areas, crisp separation - white
-        'dark-bg': '#1F2937', // Sophisticated charcoal for dark theme - gray-800
-        'dark-surface': '#374151', // Dark surface areas - gray-700
-
-        // Text Colors
-        'text-primary': '#111827', // Extended reading comfort, professional authority - gray-900
-        'text-secondary': '#6B7280', // Clear information hierarchy, supportive context - gray-500
-        'text-light': '#F9FAFB', // Pure white for dark backgrounds - gray-50
-        'text-muted': '#9CA3AF', // Warm gray for secondary text - gray-400
-
-        // Status Colors
-        'success': '#10B981', // Secure implementations, positive confirmations - emerald-500
-        'warning': '#F59E0B', // Security considerations, thoughtful caution - amber-500
-        'error': '#EF4444', // Vulnerability highlights, helpful problem identification - red-500
-
-        // Interactive Colors
-        'cyber-green': '#10B981', // Cyber green for CTAs and highlights - emerald-500
-        'terminal-green': '#00FF41', // Terminal-style green for code elements
-        'professional-indigo': '#6366F1', // Professional indigo for trust building - indigo-500
+        // Apple-inspired palette
+        'apple': {
+          'white': '#FBFBFD',
+          'gray-50': '#F5F5F7',
+          'gray-100': '#E8E8ED',
+          'gray-200': '#D2D2D7',
+          'gray-300': '#B0B0B6',
+          'gray-400': '#86868B',
+          'gray-500': '#6E6E73',
+          'gray-600': '#424245',
+          'gray-700': '#333336',
+          'gray-800': '#1D1D1F',
+          'black': '#000000',
+          'blue': '#0071E3',
+          'blue-hover': '#0077ED',
+          'blue-dark': '#0066CC',
+          'green': '#28CD41',
+          'red': '#FF3B30',
+          'orange': '#FF9500',
+          'purple': '#AF52DE',
+          'pink': '#FF2D55',
+        },
       },
       fontFamily: {
-        'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        'mono': ['JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'monospace'],
+        'sans': [
+          'Inter',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'SF Pro Display',
+          'SF Pro Text',
+          'Helvetica Neue',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+        ],
+        'display': [
+          'Inter',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'SF Pro Display',
+          'Helvetica Neue',
+          'sans-serif',
+        ],
       },
       fontSize: {
-        'xs': ['0.75rem', { lineHeight: '1rem' }],
-        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
-        'base': ['1rem', { lineHeight: '1.5rem' }],
-        'lg': ['1.125rem', { lineHeight: '1.75rem' }],
-        'xl': ['1.25rem', { lineHeight: '1.75rem' }],
-        '2xl': ['1.5rem', { lineHeight: '2rem' }],
-        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
-        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-        '5xl': ['3rem', { lineHeight: '1' }],
-        '6xl': ['3.75rem', { lineHeight: '1' }],
+        'hero': ['80px', { lineHeight: '1.05', letterSpacing: '-0.015em', fontWeight: '700' }],
+        'hero-sm': ['48px', { lineHeight: '1.08', letterSpacing: '-0.01em', fontWeight: '700' }],
+        'section': ['56px', { lineHeight: '1.07', letterSpacing: '-0.012em', fontWeight: '700' }],
+        'section-sm': ['32px', { lineHeight: '1.12', letterSpacing: '-0.01em', fontWeight: '700' }],
+        'subtitle': ['28px', { lineHeight: '1.14', letterSpacing: '0.007em', fontWeight: '600' }],
+        'subtitle-sm': ['21px', { lineHeight: '1.19', letterSpacing: '0.011em', fontWeight: '600' }],
+        'body-xl': ['21px', { lineHeight: '1.38', letterSpacing: '0.011em' }],
+        'body-lg': ['19px', { lineHeight: '1.42', letterSpacing: '0.012em' }],
+        'body': ['17px', { lineHeight: '1.47', letterSpacing: '-0.022em' }],
+        'body-sm': ['14px', { lineHeight: '1.43', letterSpacing: '-0.016em' }],
+        'caption': ['12px', { lineHeight: '1.33', letterSpacing: '-0.01em' }],
       },
       spacing: {
         '18': '4.5rem',
+        '22': '5.5rem',
+        '30': '7.5rem',
+        '34': '8.5rem',
         '88': '22rem',
         '128': '32rem',
         '144': '36rem',
       },
+      maxWidth: {
+        'apple': '980px',
+        'apple-lg': '1120px',
+        'apple-xl': '1440px',
+      },
+      borderRadius: {
+        'apple': '18px',
+        'apple-sm': '12px',
+        'apple-lg': '24px',
+        'apple-xl': '30px',
+      },
       boxShadow: {
-        'subtle': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'medium': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        'large': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-        'cyber': '0 0 10px #10B981, 0 0 20px #10B981, 0 0 30px #10B981',
-        'glow': '0 0 20px rgba(16, 185, 129, 0.3)',
+        'apple-sm': '0 1px 3px rgba(0, 0, 0, 0.08)',
+        'apple': '0 4px 16px rgba(0, 0, 0, 0.08)',
+        'apple-md': '0 8px 30px rgba(0, 0, 0, 0.08)',
+        'apple-lg': '0 12px 40px rgba(0, 0, 0, 0.12)',
+        'apple-xl': '0 20px 60px rgba(0, 0, 0, 0.15)',
+        'apple-hover': '0 8px 36px rgba(0, 0, 0, 0.14)',
       },
       animation: {
-        'typing': 'typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite',
-        'blink': 'blink-caret 0.75s step-end infinite',
-        'float': 'float 3s ease-in-out infinite',
-        'glitch': 'glitch-1 0.5s infinite',
-        'holographic': 'holographic-shift 3s ease-in-out infinite',
-        'progress': 'progress-fill 2s ease-out forwards',
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.5s ease-out',
-        'scale-in': 'scaleIn 0.3s ease-out',
+        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'fade-in': 'fadeIn 0.6s ease forwards',
+        'scale-in': 'scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
       },
       keyframes: {
-        'blink-caret': {
-          'from, to': { opacity: '1' },
-          '50%': { opacity: '0' },
+        fadeInUp: {
+          'from': { opacity: '0', transform: 'translateY(30px)' },
+          'to': { opacity: '1', transform: 'translateY(0)' },
         },
-        'typing': {
-          'from': { width: '0' },
-          'to': { width: '100%' },
-        },
-        'float': {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
-        'glitch-1': {
-          '0%, 14%, 15%, 49%, 50%, 99%, 100%': { transform: 'translate(0)' },
-          '15%, 49%': { transform: 'translate(-2px, 0)' },
-        },
-        'holographic-shift': {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-        },
-        'progress-fill': {
-          'from': { width: '0%' },
-          'to': { width: 'var(--progress-width, 0%)' },
-        },
-        'fadeIn': {
+        fadeIn: {
           'from': { opacity: '0' },
           'to': { opacity: '1' },
         },
-        'slideUp': {
-          'from': { transform: 'translateY(20px)', opacity: '0' },
-          'to': { transform: 'translateY(0)', opacity: '1' },
+        scaleIn: {
+          'from': { opacity: '0', transform: 'scale(0.96)' },
+          'to': { opacity: '1', transform: 'scale(1)' },
         },
-        'scaleIn': {
-          'from': { transform: 'scale(0.95)', opacity: '0' },
-          'to': { transform: 'scale(1)', opacity: '1' },
+        slideUp: {
+          'from': { opacity: '0', transform: 'translateY(20px)' },
+          'to': { opacity: '1', transform: 'translateY(0)' },
         },
       },
       transitionTimingFunction: {
-        'cyber': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        'apple': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'apple-spring': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       transitionDuration: {
         '400': '400ms',
         '600': '600ms',
       },
       backdropBlur: {
-        'cyber': '20px',
+        'apple': '20px',
       },
-      backdropSaturate: {
-        'cyber': '180%',
-      },
-      gridTemplateColumns: {
-        'auto-fit': 'repeat(auto-fit, minmax(300px, 1fr))',
-        'auto-fill': 'repeat(auto-fill, minmax(250px, 1fr))',
-      },
-      aspectRatio: {
-        'video': '16 / 9',
-        'square': '1 / 1',
-        'portrait': '3 / 4',
+      backgroundImage: {
+        'gradient-apple': 'linear-gradient(135deg, #0071E3, #AF52DE, #FF2D55)',
+        'gradient-hero': 'linear-gradient(to right, #2563EB, #7C3AED, #EC4899)',
+        'gradient-subtle': 'linear-gradient(180deg, #FBFBFD 0%, #F5F5F7 100%)',
       },
     },
   },

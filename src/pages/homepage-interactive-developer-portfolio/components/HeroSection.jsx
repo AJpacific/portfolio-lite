@@ -1,278 +1,178 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
-  const [currentTaglineIndex, setCurrentTaglineIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
 
-  const taglines = [
-    'Backend Developer',
-    'Cybersecurity Enthusiast'
-  ];
-
-  const terminalCommands = [
-    { command: 'whoami', output: 'ashutosh jha' },
-    { command: 'pwd', output: '/home/dev-sec' },
-    { command: 'ls skills/', output: 'java spring-framework cybersecurity python' },
-    { command: 'cat mission.txt', output: 'Building secure, scalable applications' }
-  ];
+  const roles = ['Backend', 'Cybersecurity', 'Quantum Computing', 'Deep Learning'];
 
   useEffect(() => {
-    const currentTagline = taglines[currentTaglineIndex];
-    let timeoutId;
+    const currentRole = roles[currentIndex];
+    let timeout;
 
     if (isTyping) {
-      if (displayText.length < currentTagline.length) {
-        timeoutId = setTimeout(() => {
-          setDisplayText(currentTagline.slice(0, displayText.length + 1));
-        }, 100);
+      if (displayText.length < currentRole.length) {
+        timeout = setTimeout(() => {
+          setDisplayText(currentRole.slice(0, displayText.length + 1));
+        }, 80);
       } else {
-        timeoutId = setTimeout(() => {
-          setIsTyping(false);
-        }, 2000);
+        timeout = setTimeout(() => setIsTyping(false), 2500);
       }
     } else {
       if (displayText.length > 0) {
-        timeoutId = setTimeout(() => {
+        timeout = setTimeout(() => {
           setDisplayText(displayText.slice(0, -1));
-        }, 50);
+        }, 40);
       } else {
-        setCurrentTaglineIndex((prev) => (prev + 1) % taglines.length);
+        setCurrentIndex((prev) => (prev + 1) % roles.length);
         setIsTyping(true);
       }
     }
 
-    return () => clearTimeout(timeoutId);
-  }, [displayText, isTyping, currentTaglineIndex, taglines]);
+    return () => clearTimeout(timeout);
+  }, [displayText, isTyping, currentIndex]);
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.15,
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    }),
+  };
+
+  const stats = [
+    { number: '10+', label: 'Projects' },
+    { number: '3+', label: 'Years' },
+    { number: '15+', label: 'Skills' },
+  ];
+
+  const socials = [
+    { icon: 'Github', href: 'https://github.com/AJpacific', label: 'GitHub' },
+    { icon: 'Linkedin', href: 'http://www.linkedin.com/in/ajpacific', label: 'LinkedIn' },
+    { icon: 'Code', href: 'https://leetcode.com/u/AJpacific/', label: 'LeetCode' },
+    { icon: 'Mail', href: 'mailto:aj4ashutoshjha@gmail.com', label: 'Email' },
+    { icon: 'FileText', href: '/Portfolio/assets/images/Ashutosh_Jha_Resume.pdf', label: 'Resume' },
+  ];
 
   return (
-    <div className="bg-[#27313e] min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-16">
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5 z-[-1]"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-        {/* Left Column - Terminal */}
+    <div className="bg-apple-white min-h-screen flex items-center justify-center relative overflow-hidden pt-12">
+      <div className="max-w-apple mx-auto px-6 py-14 md:py-20 text-center">
+        {/* Profile Image */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="order-2 lg:order-1"
+          custom={0}
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          className="mb-10 flex justify-center"
         >
-          {/* Terminal Window */}
-          <div className="bg-dark-surface rounded-lg border border-primary/20 shadow-large overflow-hidden">
-            {/* Terminal Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-dark-bg border-b border-primary/20">
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-error rounded-full"></div>
-                <div className="w-3 h-3 bg-warning rounded-full"></div>
-                <div className="w-3 h-3 bg-success rounded-full"></div>
-              </div>
-              <div className="text-text-muted text-sm font-mono">
-                ashutosh@portfolio:~
-              </div>
-            </div>
-
-            {/* Terminal Content */}
-            <div className="p-6 font-mono text-sm">
-              {/* Static Commands */}
-              {terminalCommands.map((cmd, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: index * 0.5 }}
-                  className="mb-3"
-                >
-                  <div className="text-cyber-green">
-                    <span className="text-text-muted">ashutosh@portfolio:~$</span> {cmd.command}
-                  </div>
-                  <div className="text-text-light ml-4">{cmd.output}</div>
-                </motion.div>
-              ))}
-
-              {/* Dynamic Typing */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2 }}
-                className="mb-3"
-              >
-                <div className="text-cyber-green">
-                  <span className="text-text-muted">ashutosh@portfolio:~$</span> echo "I am a {displayText}
-                  <span className="animate-pulse">|</span>"
-                </div>
-                <div className="text-text-light ml-4">
-                  I am a {displayText}
-                  <span className="animate-pulse text-cyber-green">|</span>
-                </div>
-              </motion.div>
-
-              {/* Current Command Line */}
-              <div className="text-cyber-green">
-                <span className="text-text-muted">ashutosh@portfolio:~$</span>
-                <span className="animate-pulse">_</span>
-              </div>
-            </div>
+          <div className="w-36 h-36 md:w-44 md:h-44 rounded-[28px] overflow-hidden shadow-apple-lg ring-8 ring-apple-gray-200">
+            <Image
+              src="/Portfolio/assets/images/pfp.jpg"
+              alt="Ashutosh Jha"
+              className="w-full h-full object-cover"
+            />
           </div>
-
-          {/* Quick Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 }}
-            className="grid grid-cols-3 gap-4 mt-8"
-          >
-            <div className="bg-dark-surface/50 rounded-lg p-4 text-center border border-primary/10">
-              <div className="text-2xl font-bold text-cyber-green font-mono">7+</div>
-              <div className="text-text-muted text-sm">Projects</div>
-            </div>
-            <div className="bg-dark-surface/50 rounded-lg p-4 text-center border border-primary/10">
-              <div className="text-2xl font-bold text-cyber-green font-mono">3+</div>
-              <div className="text-text-muted text-sm">Years</div>
-            </div>
-            <div className="bg-dark-surface/50 rounded-lg p-4 text-center border border-primary/10">
-              <div className="text-2xl font-bold text-cyber-green font-mono">15+</div>
-              <div className="text-text-muted text-sm">Skills</div>
-            </div>
-          </motion.div>
         </motion.div>
 
-        {/* Right Column - Profile */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="order-1 lg:order-2 text-center lg:text-left"
+        {/* Main Headline */}
+        <motion.h1
+          custom={1}
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          className="text-hero-sm md:text-hero font-bold text-apple-gray-800 mb-5 font-display"
         >
-          {/* Profile Image */}
-          <div className="relative mb-8 flex justify-center lg:justify-start">
-            <div className="relative">
-              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-primary shadow-cyber">
-                <Image
-                  src="/Portfolio/assets/images/pfp-modified.png"
-                  alt="Ashutosh Jha"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-2 -right-2 bg-cyber-green text-dark-bg p-2 rounded-full">
-                <Icon name="Shield" size={20} />
-              </div>
-              <div className="absolute -top-2 -left-2 w-6 h-6 bg-success rounded-full animate-pulse"></div>
+          Ashutosh Jha<span className="text-gradient-apple">.</span>
+        </motion.h1>
+
+        {/* Typing Subtitle */}
+        <motion.div
+          custom={2}
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          className="mb-6"
+        >
+          <span className="text-subtitle-sm md:text-subtitle text-apple-gray-400 font-semibold">
+            {displayText}
+            <span className="inline-block w-[2px] h-[1em] bg-apple-blue ml-1 align-middle animate-pulse" />
+          </span>
+        </motion.div>
+
+        {/* Description */}
+        <motion.p
+          custom={3}
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          className="text-body-lg md:text-body-xl text-apple-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed"
+        >
+          Crafting secure, scalable applications where innovative code meets cybersecurity excellence. Bridging the gap between creative development and digital protection.
+        </motion.p>
+
+        {/* Stats */}
+        <motion.div
+          custom={4}
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          className="flex justify-center gap-8 md:gap-16 mb-10"
+        >
+          {stats.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-apple-gray-800">{stat.number}</div>
+              <div className="text-body-sm text-apple-gray-400 mt-1">{stat.label}</div>
             </div>
-          </div>
+          ))}
+        </motion.div>
 
-          {/* Name and Title */}
+        {/* Social Links */}
+        <motion.div
+          custom={5}
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          className="flex justify-center gap-3"
+        >
+          {socials.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target={social.href.startsWith('mailto:') ? undefined : '_blank'}
+              rel="noopener noreferrer"
+              className="w-11 h-11 rounded-full bg-apple-gray-50 hover:bg-apple-gray-100 flex items-center justify-center text-apple-gray-500 hover:text-apple-gray-800 transition-all duration-300"
+              title={social.label}
+            >
+              <Icon name={social.icon} size={20} />
+            </a>
+          ))}
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            className="text-apple-gray-300"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-text-light mb-4">
-              <span className="text-cyber-green font-mono">&lt;</span>
-              Ashutosh Jha
-              <span className="text-cyber-green font-mono">/&gt;</span>
-            </h1>
-            <h2 className="text-xl md:text-2xl text-text-muted mb-6 font-mono">
-              Backend | Cybersecurity
-            </h2>
-          </motion.div>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="text-lg text-text-muted mb-8 max-w-lg mx-auto lg:mx-0"
-          >
-            Crafting secure, scalable applications where innovative code meets cybersecurity excellence.
-            Bridging the gap between creative development and digital protection.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-          >
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 }}
-            className="flex flex-wrap justify-center lg:justify-start gap-6 mt-6"
-          >
-            <a
-              href="https://github.com/AJpacific"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-text-muted hover:text-cyber-green transition-colors duration-300 group"
-            >
-              <Icon name="Github" size={22} className="group-hover:scale-110 transition-transform" />
-              <span className="font-mono">GitHub</span>
-            </a>
-            <a
-              href="http://www.linkedin.com/in/ajpacific"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-text-muted hover:text-cyber-green transition-colors duration-300 group"
-            >
-              <Icon name="Linkedin" size={22} className="group-hover:scale-110 transition-transform" />
-              <span className="font-mono">LinkedIn</span>
-            </a>
-            <a
-              href="https://leetcode.com/u/AJpacific/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-text-muted hover:text-cyber-green transition-colors duration-300 group"
-            >
-              <Icon name="Code" size={22} className="group-hover:scale-110 transition-transform" />
-              <span className="font-mono">LeetCode</span>
-            </a>
-            <a
-              href="mailto:aj4ashutoshjha@gmail.com"
-              className="flex items-center space-x-2 text-text-muted hover:text-cyber-green transition-colors duration-300 group"
-            >
-              <Icon name="Mail" size={22} className="group-hover:scale-110 transition-transform" />
-              <span className="font-mono">Email</span>
-            </a>
-            <a
-              href="/Portfolio/assets/images/Ashutosh_Jha_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-text-muted hover:text-cyber-green transition-colors duration-300 group"
-              title="Download Resume"
-            >
-              <Icon name="FileText" size={22} className="group-hover:scale-110 transition-transform" />
-              <span className="font-mono">Resume</span>
-            </a>
+            <Icon name="ChevronDown" size={22} />
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-1 w-full flex justify-center"
-      >
-        <div className="flex flex-col items-center space-y-2 text-text-muted">
-          <span className="text-sm font-mono">Scroll to explore</span>
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <Icon name="ChevronDown" size={20} className="text-cyber-green" />
-          </motion.div>
-        </div>
-      </motion.div>
     </div>
   );
 };

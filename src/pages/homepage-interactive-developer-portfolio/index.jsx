@@ -6,6 +6,8 @@ import HeroSection from './components/HeroSection';
 import SkillsLaboratory from './components/SkillsLaboratory';
 import ProjectShowcase from './components/ProjectShowcase';
 import SecurityArsenal from './components/SecurityArsenal';
+import Education from './components/Education';
+import Certifications from './components/Certifications';
 import Achievements from './components/Achievements';
 
 const HomepageInteractiveDeveloperPortfolio = () => {
@@ -16,19 +18,31 @@ const HomepageInteractiveDeveloperPortfolio = () => {
         <HeroSection />
       </section>
 
+      {/* Education */}
+      <section id="education" className="py-24 md:py-32 bg-section-alt">
+        <Education />
+      </section>
+
       {/* Skills */}
-      <section id="skills" className="py-24 md:py-32 bg-section-alt">
+      <section id="skills" className="py-24 md:py-32 bg-section-white">
         <SkillsLaboratory />
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-24 md:py-32 bg-section-white">
+      <section id="projects" className="py-24 md:py-32 bg-section-alt">
         <ProjectShowcase />
       </section>
 
       {/* Security */}
-      <section id="security" className="py-24 md:py-32 bg-section-alt">
+      <section id="security" className="py-24 md:py-32 bg-section-white">
         <SecurityArsenal />
+      </section>
+
+
+
+      {/* Certifications */}
+      <section id="certifications" className="py-24 md:py-32 bg-section-alt">
+        <Certifications />
       </section>
 
       {/* Achievements */}

@@ -8,9 +8,11 @@ const Header = () => {
 
   const navigationItems = [
     { name: 'Home', href: '#hero' },
+    { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Security', href: '#security' },
+    { name: 'Certifications', href: '#certifications' },
     { name: 'Achievements', href: '#achievements' },
   ];
 
@@ -39,8 +41,8 @@ const Header = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-apple ${isScrolled
-            ? 'backdrop-apple bg-white/80 border-b border-apple-gray-100'
-            : 'bg-white/0'
+          ? 'backdrop-apple bg-white/80 border-b border-apple-gray-100'
+          : 'bg-white/0'
           }`}
       >
         <div className="max-w-apple-xl mx-auto px-6 lg:px-10">
@@ -96,8 +98,8 @@ const Header = () => {
       {/* Mobile Menu Overlay */}
       <div
         className={`fixed inset-0 z-40 transition-all duration-500 ease-apple-spring lg:hidden ${isMenuOpen
-            ? 'opacity-100 pointer-events-auto'
-            : 'opacity-0 pointer-events-none'
+          ? 'opacity-100 pointer-events-auto'
+          : 'opacity-0 pointer-events-none'
           }`}
       >
         {/* Backdrop */}
@@ -114,8 +116,8 @@ const Header = () => {
               href={item.href}
               onClick={(e) => scrollToSection(e, item.href)}
               className={`text-3xl font-semibold text-apple-gray-800 hover:text-apple-blue transition-all duration-300 ${isMenuOpen
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-4'
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4'
                 }`}
               style={{
                 transitionDelay: isMenuOpen ? `${index * 60}ms` : '0ms',
@@ -128,8 +130,8 @@ const Header = () => {
             href="mailto:aj4ashutoshjha@gmail.com"
             onClick={closeMenu}
             className={`btn-apple btn-apple-primary mt-4 transition-all duration-300 ${isMenuOpen
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-4'
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-4'
               }`}
             style={{
               transitionDelay: isMenuOpen ? `${navigationItems.length * 60}ms` : '0ms',

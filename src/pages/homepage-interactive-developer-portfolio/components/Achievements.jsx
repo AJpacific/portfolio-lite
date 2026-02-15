@@ -89,22 +89,27 @@ const Achievements = () => {
           </p>
 
           {/* Project Details */}
-          <div className="bg-apple-gray-50 rounded-apple p-6 md:p-8">
+          <div>
             <div className="flex items-center gap-3 mb-2">
-              <Icon name="Layers" size={20} className="text-apple-blue" />
-              <h4 className="text-body font-semibold text-apple-gray-800">
-                Subscription Management System
-              </h4>
+              <span className="w-10 h-10 rounded-full bg-apple-gray-50 flex items-center justify-center text-apple-blue flex-shrink-0">
+                <Icon name="Layers" size={20} />
+              </span>
+              <div>
+                <h4 className="text-body font-bold text-apple-gray-800 leading-tight">
+                  Subscription Management System
+                </h4>
+                <p className="text-caption text-apple-gray-400">
+                  Role: Backend Developer
+                </p>
+              </div>
             </div>
-            <span className="inline-block text-caption text-apple-gray-400 mb-4">
-              Role: Backend Developer
-            </span>
-            <p className="text-body-sm text-apple-gray-500 mb-6">
+
+            <p className="text-body-sm text-apple-gray-500 mb-6 mt-4 leading-relaxed">
               Full-stack platform for telecom/ISP subscriptions: customers, plans, billing, and analytics.
             </p>
 
             {/* Highlights */}
-            <div className="grid sm:grid-cols-2 gap-3 mb-6">
+            <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-8">
               {highlights.map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <Icon name={item.icon} size={16} className="text-apple-blue mt-0.5 flex-shrink-0" />
@@ -114,11 +119,11 @@ const Achievements = () => {
             </div>
 
             {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-wrap gap-2 mb-8">
               {techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 bg-white text-apple-gray-500 rounded-full text-caption font-medium shadow-apple-sm"
+                  className="px-3 py-1 bg-apple-gray-50 text-apple-gray-500 rounded-full text-caption font-medium"
                 >
                   {tech}
                 </span>

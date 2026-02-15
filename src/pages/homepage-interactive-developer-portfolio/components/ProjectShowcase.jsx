@@ -123,7 +123,7 @@ const ProjectShowcase = () => {
 
       {/* Category Filter */}
       <div className="flex mb-12 overflow-x-auto pb-4 md:pb-0 no-scrollbar px-4 -mx-4 md:mx-0">
-        <div className="inline-flex items-center bg-apple-gray-50 rounded-full p-1 gap-1 min-w-max mx-auto">
+        <div className="inline-flex items-center bg-apple-gray-100 rounded-full p-1 gap-1 min-w-max mx-auto">
           {categories.map((cat) => (
             <button
               key={cat}

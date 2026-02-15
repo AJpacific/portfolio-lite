@@ -1,21 +1,46 @@
 # AJ's Portfolio
 
-A modern, interactive developer portfolio for Ashutosh Jha, showcasing skills in backend development and cybersecurity. Built with React, Tailwind CSS, and Vite, this portfolio highlights technical expertise, project showcases, and a security-focused toolkit.
+A clean, minimal developer portfolio inspired by Apple's design language. Built with React, Tailwind CSS, and Framer Motion.
 
-## 🚀 Features
+## ✨ Features
 
-- **Interactive Skills Laboratory:** Visualize technical skills with code previews and proficiency bars.
-- **Project Showcase:** Explore real-world projects with detailed descriptions, tech stacks, and GitHub links.
-- **Security Arsenal:** Discover tools and techniques used in cybersecurity and penetration testing.
-- **Responsive Design:** Fully responsive and mobile-friendly user interface.
-- **Modern Animations:** Smooth transitions and engaging UI powered by Framer Motion.
-- **Dark Mode:** Professional and accessible color palette for comfortable viewing.
-- **Error Boundaries:** Robust error handling for seamless user experience.
+- **Apple-Inspired Design** — White-dominant, clean typography, frosted glass nav, and smooth animations
+- **Skills Grid** — Backend, frontend, cybersecurity, AI/ML, and quantum computing skills with tag-based layout
+- **Project Showcase** — Filterable project cards across Backend, Cybersecurity, and Frontend categories
+- **Security Toolkit** — Tools and techniques for penetration testing and vulnerability assessment
+- **Achievements** — Hackathon wins and project highlights
+- **Fully Responsive** — Mobile-first design with full-screen overlay navigation
+- **Animated Transitions** — Staggered fade-in-up animations powered by Framer Motion
 
 ## 🛠️ Tech Stack
 
 - **Frontend:** React, Tailwind CSS, Framer Motion
 - **Build Tool:** Vite
 - **Icons:** Lucide React
-- **State Management:** Redux Toolkit (planned for future use)
-- **Additional Libraries:** D3.js, Recharts, React Hook Form
+- **Font:** Inter (Google Fonts)
+
+## 🚀 Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run start
+
+# Production build
+npm run build
+```
+
+## 📁 Structure
+
+```
+src/
+├── components/          # Shared components (AppIcon, AppImage, Header)
+├── pages/
+│   ├── homepage-.../    # Main portfolio page
+│   │   ├── components/  # HeroSection, Skills, Projects, Security, Achievements
+│   │   └── index.jsx    # Page layout with sections + footer
+│   └── NotFound.jsx     # 404 page
+└── styles/              # Tailwind CSS + Apple design tokens
+```

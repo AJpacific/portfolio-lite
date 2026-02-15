@@ -86,7 +86,7 @@ const HomepageInteractiveDeveloperPortfolio = () => {
               <a href="mailto:aj4ashutoshjha@gmail.com" className="text-apple-gray-400 hover:text-white transition-colors duration-300">
                 <Icon name="Mail" size={18} />
               </a>
-              <a href="/Portfolio/assets/images/Ashutosh_Jha_Resume.pdf" target="_blank" rel="noopener noreferrer" className="text-apple-gray-400 hover:text-white transition-colors duration-300">
+              <a href="/assets/images/Ashutosh_Jha_Resume.pdf" target="_blank" rel="noopener noreferrer" className="text-apple-gray-400 hover:text-white transition-colors duration-300">
                 <Icon name="FileText" size={18} />
               </a>
             </div>

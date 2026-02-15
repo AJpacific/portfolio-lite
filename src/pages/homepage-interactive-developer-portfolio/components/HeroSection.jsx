@@ -60,7 +60,7 @@ const HeroSection = () => {
     { icon: 'Linkedin', href: 'http://www.linkedin.com/in/ajpacific', label: 'LinkedIn' },
     { icon: 'Code', href: 'https://leetcode.com/u/AJpacific/', label: 'LeetCode' },
     { icon: 'Mail', href: 'mailto:aj4ashutoshjha@gmail.com', label: 'Email' },
-    { icon: 'FileText', href: '/Portfolio/assets/images/Ashutosh_Jha_Resume.pdf', label: 'Resume' },
+    { icon: 'FileText', href: '/assets/images/Ashutosh_Jha_Resume.pdf', label: 'Resume' },
   ];
 
   return (
@@ -76,7 +76,7 @@ const HeroSection = () => {
         >
           <div className="w-36 h-36 md:w-44 md:h-44 rounded-[28px] overflow-hidden shadow-apple-lg ring-8 ring-apple-gray-200">
             <Image
-              src="/Portfolio/assets/images/pfp.jpg"
+              src="/assets/images/pfp.jpg"
               alt="Ashutosh Jha"
               className="w-full h-full object-cover"
             />

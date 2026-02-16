@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { HashRouter, Routes as RouterRoutes, Route } from "react-router-dom";
+import { BrowserRouter, Routes as RouterRoutes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Header from "./components/ui/Header";
@@ -17,7 +17,7 @@ const RedirectToExternal = ({ url }) => {
 
 const Routes = () => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ErrorBoundary>
         <ScrollToTop />
         <Header />
@@ -35,7 +35,7 @@ const Routes = () => {
           <Route path="*" element={<NotFound />} />
         </RouterRoutes>
       </ErrorBoundary>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 

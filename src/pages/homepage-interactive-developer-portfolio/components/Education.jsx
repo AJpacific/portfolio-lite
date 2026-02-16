@@ -19,8 +19,9 @@ const Education = () => {
             degree: 'School Education',
             location: 'Madhubani, Bihar',
             details: [
-                { label: 'Senior Secondary (PCM)', value: '83.6%', year: '2021' },
-                { label: 'Secondary Education', value: '94%', year: '2019' },
+                { label: 'HSC (Class 12 - PCM)', value: '83.6%', year: '2021' },
+                { label: 'SSC (Class 10)', value: '94%', year: '2019' },
+
             ],
             icon: 'School',
         },

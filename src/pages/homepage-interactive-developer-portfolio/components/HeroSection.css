@@ -61,15 +61,18 @@
 /* Mobile Responsive Sizes */
 @media (max-width: 768px) {
     .sanskrit-word.medium {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
+        /* Increased from 1.2rem */
     }
 
     .sanskrit-word.large {
-        font-size: 2rem;
+        font-size: 3rem;
+        /* Increased from 2rem */
     }
 
     .sanskrit-word.xlarge {
-        font-size: 3rem;
+        font-size: 4.5rem;
+        /* Increased from 3rem */
     }
 }
 

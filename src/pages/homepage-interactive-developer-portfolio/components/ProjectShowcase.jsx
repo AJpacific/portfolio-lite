@@ -122,13 +122,13 @@ const ProjectShowcase = () => {
       </motion.div>
 
       {/* Category Filter */}
-      <div className="flex mb-12 overflow-x-auto pb-4 md:pb-0 no-scrollbar px-4 -mx-4 md:mx-0">
-        <div className="inline-flex items-center bg-apple-gray-100 rounded-full p-1 gap-1 min-w-max mx-auto">
+      <div className="flex justify-center mb-12 w-full">
+        <div className="flex items-center bg-apple-gray-100 rounded-full p-1 gap-1 max-w-full overflow-x-auto no-scrollbar">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-body-sm font-medium transition-all duration-300 ${activeCategory === cat
+              className={`shrink-0 px-5 py-2 rounded-full text-body-sm font-medium transition-all duration-300 ${activeCategory === cat
                 ? 'bg-white text-apple-gray-800 shadow-apple-sm'
                 : 'text-apple-gray-500 hover:text-apple-gray-700'
                 }`}

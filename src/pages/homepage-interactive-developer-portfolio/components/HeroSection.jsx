@@ -1,7 +1,109 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
+import './HeroSection.css';
+
+const SanskritBackground = () => {
+  const containerRef = useRef(null);
+  const [words, setWords] = useState([]);
+  const wordIdCounter = useRef(0);
+
+  const sanskritWords = ['ॐ', 'ॐ नमः शिवाय'];
+  const sizes = ['medium', 'large', 'xlarge'];
+  const TARGET_WORD_COUNT = 15;
+
+  // Get random position within safe zone
+  const getRandomPosition = (containerWidth, containerHeight, wordSize) => {
+    const padding = wordSize === 'xlarge' ? 100 : wordSize === 'large' ? 80 : 60;
+
+    return {
+      x: Math.random() * (containerWidth - padding), // No left padding to allow full width usage
+      y: Math.random() * (containerHeight - padding * 2) + padding,
+    };
+  };
+
+  // Check if new word overlaps with existing words
+  const checkOverlap = (newPos, existingWords, newSize) => {
+    const minDistance = newSize === 'xlarge' ? 150 : newSize === 'large' ? 120 : 100;
+
+    for (let word of existingWords) {
+      const distance = Math.sqrt(
+        Math.pow(newPos.x - word.x, 2) + Math.pow(newPos.y - word.y, 2)
+      );
+      if (distance < minDistance) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  // Create a new word with random properties
+  const createWord = (containerWidth, containerHeight, existingWords) => {
+    const text = sanskritWords[Math.floor(Math.random() * sanskritWords.length)];
+    const size = sizes[Math.floor(Math.random() * sizes.length)];
+    const duration = 15 + Math.random() * 10; // 15-25 seconds
+
+    let position;
+    let attempts = 0;
+    const maxAttempts = 50;
+
+    // Try to find non-overlapping position
+    do {
+      position = getRandomPosition(containerWidth, containerHeight, size);
+      attempts++;
+    } while (
+      checkOverlap(position, existingWords, size) &&
+      attempts < maxAttempts
+    );
+
+    // If we couldn't find a spot after max attempts, use the last position anyway
+    if (!position) {
+      position = getRandomPosition(containerWidth, containerHeight, size);
+    }
+
+    return {
+      id: wordIdCounter.current++,
+      text,
+      size,
+      x: position.x,
+      y: position.y,
+      duration,
+      delay: Math.random() * -20 // Start animation at random point
+    };
+  };
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const { offsetWidth: width, offsetHeight: height } = containerRef.current;
+
+    const initialWords = [];
+    for (let i = 0; i < TARGET_WORD_COUNT; i++) {
+      const newWord = createWord(width, height, initialWords);
+      initialWords.push(newWord);
+    }
+    setWords(initialWords);
+  }, []);
+
+  return (
+    <div className="sanskrit-background" ref={containerRef}>
+      {words.map(word => (
+        <div
+          key={word.id}
+          className={`sanskrit-word ${word.size}`}
+          style={{
+            left: word.x,
+            top: word.y,
+            animationDuration: `${word.duration}s`,
+            animationDelay: `${word.delay}s`
+          }}
+        >
+          {word.text}
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
@@ -60,12 +162,13 @@ const HeroSection = () => {
     { icon: 'Linkedin', href: 'http://www.linkedin.com/in/ajpacific', label: 'LinkedIn' },
     { icon: 'Code', href: 'https://leetcode.com/u/AJpacific/', label: 'LeetCode' },
     { icon: 'Mail', href: 'mailto:aj4ashutoshjha@gmail.com', label: 'Email' },
-    { icon: 'FileText', href: 'https://drive.google.com/drive/folders/1SdoRbrI4-a58DQPXN5V_ryLVdvofROgA?usp=drive_link', label: 'Resume' },
+    { icon: 'FileText', href: 'https://drive.google.com/drive/folders/1SdoRbrI4-a58DQPXN5V_ryLVdvofROg?usp=drive_link', label: 'Resume' },
   ];
 
   return (
-    <div className="bg-apple-white min-h-screen flex items-center justify-center relative overflow-hidden pt-12">
-      <div className="max-w-apple mx-auto px-6 py-14 md:py-20 text-center">
+    <div className="hero-section bg-apple-white">
+      <SanskritBackground />
+      <div className="max-w-apple mx-auto px-6 py-14 md:py-20 text-center relative z-10">
         {/* Profile Image */}
         <motion.div
           custom={0}

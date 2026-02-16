@@ -1,0 +1,120 @@
+/* HeroSection.css */
+
+/* Import Noto Serif Devanagari font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&display=swap');
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    /* background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); Removed to keep original light UI */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sanskrit Background Container */
+.sanskrit-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Sanskrit Words */
+.sanskrit-word {
+    position: absolute;
+    font-family: 'Noto Serif Devanagari', serif;
+    color: rgba(0, 0, 0, 0.06);
+    /* Faint gray for light background */
+    font-weight: 600;
+    white-space: nowrap;
+    pointer-events: none;
+    will-change: transform, opacity;
+    animation: floatAndFade linear infinite;
+    transform-origin: center;
+}
+
+/* Size Variants */
+.sanskrit-word.medium {
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+}
+
+.sanskrit-word.large {
+    font-size: 3.5rem;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+}
+
+.sanskrit-word.xlarge {
+    font-size: 5rem;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+}
+
+/* Mobile Responsive Sizes */
+@media (max-width: 768px) {
+    .sanskrit-word.medium {
+        font-size: 1.2rem;
+    }
+
+    .sanskrit-word.large {
+        font-size: 2rem;
+    }
+
+    .sanskrit-word.xlarge {
+        font-size: 3rem;
+    }
+}
+
+/* Floating Animation */
+@keyframes floatAndFade {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0deg) scale(0.8);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translate(20px, -30px) rotate(2deg) scale(1);
+    }
+
+    25% {
+        transform: translate(-30px, -80px) rotate(-3deg) scale(1.05);
+    }
+
+    50% {
+        transform: translate(40px, -150px) rotate(4deg) scale(1);
+        opacity: 0.8;
+    }
+
+    75% {
+        transform: translate(-20px, -220px) rotate(-2deg) scale(0.95);
+        opacity: 0.5;
+    }
+
+    90% {
+        opacity: 0.2;
+        transform: translate(10px, -280px) rotate(1deg) scale(0.9);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, -320px) rotate(0deg) scale(0.8);
+    }
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    /* color: #fff; Removed to keep original dark text */
+    padding-top: 5rem;
+}

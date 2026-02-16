@@ -147,7 +147,7 @@ const SkillsLaboratory = () => {
           >
             {/* Icon & Name */}
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-11 h-11 rounded-apple-sm bg-apple-gray-50 flex items-center justify-center text-apple-gray-600 group-hover:bg-apple-gray-800 group-hover:text-white transition-all duration-400">
+              <div className="w-11 h-11 rounded-apple-sm bg-apple-gray-50 flex items-center justify-center text-apple-gray-600">
                 <Icon name={skill.icon} size={22} />
               </div>
               <h3 className="text-body font-semibold text-apple-gray-800">{skill.name}</h3>

@@ -98,9 +98,11 @@ const Achievements = () => {
                 <h4 className="text-body font-bold text-apple-gray-800 leading-tight">
                   Subscription Management System
                 </h4>
-                <p className="text-caption text-apple-gray-400">
-                  Role: Backend Developer
-                </p>
+                <div className="mt-3 inline-flex items-center px-3 py-1.5 rounded-lg bg-apple-blue/5 border border-apple-blue/10">
+                  <span className="text-caption font-medium text-apple-gray-500">
+                    Role: <span className="text-apple-blue font-bold">Team Lead & Backend Developer</span>
+                  </span>
+                </div>
               </div>
             </div>
 

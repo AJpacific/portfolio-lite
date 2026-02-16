@@ -60,7 +60,7 @@ const HeroSection = () => {
     { icon: 'Linkedin', href: 'http://www.linkedin.com/in/ajpacific', label: 'LinkedIn' },
     { icon: 'Code', href: 'https://leetcode.com/u/AJpacific/', label: 'LeetCode' },
     { icon: 'Mail', href: 'mailto:aj4ashutoshjha@gmail.com', label: 'Email' },
-    { icon: 'FileText', href: '/assets/images/Ashutosh_Jha_Resume.pdf', label: 'Resume' },
+    { icon: 'FileText', href: 'https://drive.google.com/drive/folders/1SdoRbrI4-a58DQPXN5V_ryLVdvofROgA?usp=drive_link', label: 'Resume' },
   ];
 
   return (

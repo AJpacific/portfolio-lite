@@ -78,7 +78,7 @@ const SecurityArsenal = () => {
             className="card-apple p-6 group"
           >
             <div className="flex items-start gap-4">
-              <div className="w-11 h-11 rounded-apple-sm bg-apple-gray-50 flex items-center justify-center text-apple-gray-500 group-hover:bg-apple-gray-800 group-hover:text-white transition-all duration-400 flex-shrink-0">
+              <div className="w-11 h-11 rounded-apple-sm bg-apple-gray-50 flex items-center justify-center text-apple-gray-500 flex-shrink-0">
                 <Icon name={tool.icon} size={22} />
               </div>
               <div className="min-w-0">

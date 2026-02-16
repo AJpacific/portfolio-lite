@@ -12,7 +12,7 @@ const Certifications = () => {
             description: 'Ranked in the Top 5% nationwide; awarded Elite certification with a score of 73%.',
             link: '/assets/images/Software%20Engineering.pdf',
             icon: 'Award',
-            color: 'text-blue-500',
+            color: 'text-apple-gray-600',
         },
         {
             id: 2,
@@ -22,7 +22,7 @@ const Certifications = () => {
             description: 'Ranked in the Top 5% nationwide; awarded Elite certification with a score of 75%.',
             link: '/assets/images/Compiler%20Design.pdf',
             icon: 'Cpu',
-            color: 'text-purple-500',
+            color: 'text-apple-gray-600',
         },
     ];
 
@@ -79,7 +79,7 @@ const Certifications = () => {
                     <motion.div
                         key={cert.id}
                         variants={itemVariants}
-                        className="card-apple p-8 flex flex-col items-start hover:border-apple-blue/30 border border-transparent transition-colors duration-300"
+                        className="card-apple p-8 flex flex-col items-start"
                     >
                         <div className={`w-12 h-12 rounded-2xl bg-apple-gray-50 flex items-center justify-center mb-6 ${cert.color}`}>
                             <Icon name={cert.icon} size={24} />

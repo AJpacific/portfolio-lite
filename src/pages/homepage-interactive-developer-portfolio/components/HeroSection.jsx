@@ -11,7 +11,22 @@ const SanskritBackground = () => {
 
   const sanskritWords = ['ॐ', 'ॐ नमः शिवाय'];
   const sizes = ['medium', 'large', 'xlarge'];
-  const TARGET_WORD_COUNT = 15;
+  const [targetWordCount, setTargetWordCount] = useState(15);
+
+  // Update word count based on screen size
+  useEffect(() => {
+    const updateWordCount = () => {
+      if (window.innerWidth < 768) {
+        setTargetWordCount(5); // Fewer words on mobile
+      } else {
+        setTargetWordCount(10);
+      }
+    };
+
+    updateWordCount(); // Initial check
+    window.addEventListener('resize', updateWordCount);
+    return () => window.removeEventListener('resize', updateWordCount);
+  }, []);
 
   // Get random position within safe zone
   const getRandomPosition = (containerWidth, containerHeight, wordSize) => {
@@ -78,12 +93,12 @@ const SanskritBackground = () => {
     const { offsetWidth: width, offsetHeight: height } = containerRef.current;
 
     const initialWords = [];
-    for (let i = 0; i < TARGET_WORD_COUNT; i++) {
+    for (let i = 0; i < targetWordCount; i++) {
       const newWord = createWord(width, height, initialWords);
       initialWords.push(newWord);
     }
     setWords(initialWords);
-  }, []);
+  }, [targetWordCount]);
 
   return (
     <div className="sanskrit-background" ref={containerRef}>
@@ -110,7 +125,7 @@ const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
 
-  const roles = ['Backend', 'Cybersecurity', 'Quantum Computing', 'Deep Learning'];
+  const roles = ['Backend Development', 'Cybersecurity', 'Quantum Computing', 'Deep Learning'];
 
   useEffect(() => {
     const currentRole = roles[currentIndex];
@@ -162,7 +177,7 @@ const HeroSection = () => {
     { icon: 'Linkedin', href: 'http://www.linkedin.com/in/ajpacific', label: 'LinkedIn' },
     { icon: 'Code', href: 'https://leetcode.com/u/AJpacific/', label: 'LeetCode' },
     { icon: 'Mail', href: 'mailto:aj4ashutoshjha@gmail.com', label: 'Email' },
-    { icon: 'FileText', href: 'https://drive.google.com/drive/folders/1SdoRbrI4-a58DQPXN5V_ryLVdvofROg?usp=drive_link', label: 'Resume' },
+    { icon: 'FileText', href: 'https://drive.google.com/drive/u/1/folders/1SdoRbrI4-a58DQPXN5V_ryLVdvofROgA', label: 'Resume' },
   ];
 
   return (

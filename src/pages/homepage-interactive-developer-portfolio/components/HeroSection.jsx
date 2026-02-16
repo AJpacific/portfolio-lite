@@ -33,8 +33,8 @@ const SanskritBackground = () => {
     const padding = wordSize === 'xlarge' ? 100 : wordSize === 'large' ? 80 : 60;
 
     return {
-      x: Math.random() * (containerWidth - padding), // No left padding to allow full width usage
-      y: Math.random() * (containerHeight - padding * 2) + padding,
+      x: Math.random() * (containerWidth - padding), // Random position across full width
+      y: Math.random() * (containerHeight - padding * 2) + padding, // Random position across full height
     };
   };
 
@@ -57,7 +57,7 @@ const SanskritBackground = () => {
   const createWord = (containerWidth, containerHeight, existingWords) => {
     const text = sanskritWords[Math.floor(Math.random() * sanskritWords.length)];
     const size = sizes[Math.floor(Math.random() * sizes.length)];
-    const duration = 15 + Math.random() * 10; // 15-25 seconds
+    const duration = 25 + Math.random() * 20; // 25-45 seconds (increased life span)
 
     let position;
     let attempts = 0;

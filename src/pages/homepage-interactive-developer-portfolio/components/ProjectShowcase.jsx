@@ -39,6 +39,14 @@ const ProjectShowcase = () => {
       githubUrl: 'https://github.com/AJpacific/chat-app-backend',
     },
     {
+      id: 9,
+      title: 'MiniGPT — Java Code Generator',
+      category: 'Deep Learning',
+      description: 'GPT-style decoder-only Transformer built from scratch in PyTorch, trained on 100 MB of real Java code. Features 6 layers, 8-head causal self-attention, weight tying, mixed-precision fp16 training, and generates syntactically plausible Java code including class declarations, method signatures, and Javadoc comments.',
+      technologies: ['PyTorch', 'Python', 'Transformer', 'Multi-Head Attention', 'CUDA', 'Mixed Precision (FP16)'],
+      githubUrl: 'https://github.com/AJpacific/MiniGPT-Java',
+    },
+    {
       id: 3,
       title: 'Network Vulnerability Scanner',
       category: 'Cybersecurity',
@@ -71,6 +79,7 @@ const ProjectShowcase = () => {
       githubUrl: 'https://github.com/AJpacific/rigveda',
       liveUrl: 'https://rigveda-snh2.vercel.app/',
     },
+
   ];
 
   const categories = ['All', ...new Set(projects.map((p) => p.category))];
@@ -117,7 +126,7 @@ const ProjectShowcase = () => {
           variants={itemVariants}
           className="text-body-lg text-apple-gray-400 max-w-2xl mx-auto"
         >
-          Explore my work across backend development, frontend, and cybersecurity.
+          Explore my work across backend development, deep learning, frontend, and cybersecurity.
         </motion.p>
       </motion.div>
 

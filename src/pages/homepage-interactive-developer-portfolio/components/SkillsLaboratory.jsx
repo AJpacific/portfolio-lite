@@ -37,7 +37,7 @@ const skills = [
     id: 'database',
     name: 'Databases',
     icon: 'Database',
-    tags: ['MySQL', 'PostgreSQL', 'Redis', 'JPA/Hibernate'],
+    tags: ['MySQL', 'PostgreSQL', 'Redis', 'H2', 'JPA/Hibernate'],
   },
   {
     id: 'security-backend',
@@ -61,7 +61,7 @@ const skills = [
     id: 'dev-tools',
     name: 'Development Tools',
     icon: 'Wrench',
-    tags: ['Git/GitHub', 'Maven', 'Postman', 'HikariCP'],
+    tags: ['Git/GitHub', 'Maven', 'Postman', 'HikariCP', 'CUDA'],
   },
   {
     id: 'react',
@@ -82,10 +82,16 @@ const skills = [
     tags: ['Pen Testing', 'OWASP Top 10', 'Encryption'],
   },
   {
-    id: 'ai-ml',
-    name: 'AI & Machine Learning',
+    id: 'deep-learning',
+    name: 'Deep Learning',
     icon: 'Cpu',
-    tags: ['Neural Networks', 'Transformers', 'NLP'],
+    tags: ['PyTorch', 'Transformers', 'Multi-Head Attention', 'Mixed Precision (FP16)', 'Model Training & Eval'],
+  },
+  {
+    id: 'quantum-computing',
+    name: 'Quantum Computing',
+    icon: 'Atom',
+    tags: ['Qubits', 'Quantum Gates', 'Superposition', 'Entanglement', 'Quantum Algorithms'],
   },
 ];
 

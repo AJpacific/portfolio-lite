@@ -176,6 +176,7 @@ const HeroSection = () => {
     { icon: 'Github', href: 'https://github.com/AJpacific', label: 'GitHub' },
     { icon: 'Linkedin', href: 'http://www.linkedin.com/in/ajpacific', label: 'LinkedIn' },
     { icon: 'Code', href: 'https://leetcode.com/u/AJpacific/', label: 'LeetCode' },
+    { icon: 'Swords', href: 'https://codeforces.com/profile/AJpacific', label: 'Codeforces' },
     { icon: 'Mail', href: 'mailto:aj4ashutoshjha@gmail.com', label: 'Email' },
     { icon: 'FileText', href: 'https://drive.google.com/drive/u/1/folders/1SdoRbrI4-a58DQPXN5V_ryLVdvofROgA', label: 'Resume' },
   ];
@@ -234,7 +235,7 @@ const HeroSection = () => {
           variants={fadeInUp}
           className="text-body-lg md:text-body-xl text-apple-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Crafting secure, scalable applications where innovative code meets cybersecurity excellence. Bridging the gap between creative development and digital protection.
+          Building secure backend systems, deep learning models, and cybersecurity-focused solutions that scale with impact.
         </motion.p>
 
         {/* Stats */}

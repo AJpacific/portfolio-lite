@@ -97,6 +97,9 @@ const HomepageInteractiveDeveloperPortfolio = () => {
               <a href="https://leetcode.com/u/AJpacific/" target="_blank" rel="noopener noreferrer" className="text-apple-gray-400 hover:text-white transition-colors duration-300">
                 <Icon name="Code" size={18} />
               </a>
+              <a href="https://codeforces.com/profile/AJpacific" target="_blank" rel="noopener noreferrer" className="text-apple-gray-400 hover:text-white transition-colors duration-300">
+                <Icon name="Swords" size={18} />
+              </a>
               <a href="mailto:aj4ashutoshjha@gmail.com" className="text-apple-gray-400 hover:text-white transition-colors duration-300">
                 <Icon name="Mail" size={18} />
               </a>

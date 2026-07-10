@@ -6,6 +6,7 @@ import HeroSection from './components/HeroSection';
 import SkillsLaboratory from './components/SkillsLaboratory';
 import ProjectShowcase from './components/ProjectShowcase';
 import SecurityArsenal from './components/SecurityArsenal';
+import Experience from './components/Experience';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Achievements from './components/Achievements';
@@ -18,35 +19,40 @@ const HomepageInteractiveDeveloperPortfolio = () => {
         <HeroSection />
       </section>
 
+      {/* Experience */}
+      <section id="experience" className="py-24 md:py-32 bg-section-alt">
+        <Experience />
+      </section>
+
       {/* Education */}
-      <section id="education" className="py-24 md:py-32 bg-section-alt">
+      <section id="education" className="py-24 md:py-32 bg-section-white">
         <Education />
       </section>
 
       {/* Skills */}
-      <section id="skills" className="py-24 md:py-32 bg-section-white">
+      <section id="skills" className="py-24 md:py-32 bg-section-alt">
         <SkillsLaboratory />
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-24 md:py-32 bg-section-alt">
+      <section id="projects" className="py-24 md:py-32 bg-section-white">
         <ProjectShowcase />
       </section>
 
       {/* Security */}
-      <section id="security" className="py-24 md:py-32 bg-section-white">
+      <section id="security" className="py-24 md:py-32 bg-section-alt">
         <SecurityArsenal />
       </section>
 
 
 
       {/* Certifications */}
-      <section id="certifications" className="py-24 md:py-32 bg-section-alt">
+      <section id="certifications" className="py-24 md:py-32 bg-section-white">
         <Certifications />
       </section>
 
       {/* Achievements */}
-      <section id="achievements" className="py-24 md:py-32 bg-section-white">
+      <section id="achievements" className="py-24 md:py-32 bg-section-alt">
         <Achievements />
       </section>
 

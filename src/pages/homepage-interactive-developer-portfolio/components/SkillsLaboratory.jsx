@@ -37,7 +37,7 @@ const skills = [
     id: 'database',
     name: 'Databases',
     icon: 'Database',
-    tags: ['MySQL', 'PostgreSQL', 'Redis', 'H2', 'JPA/Hibernate'],
+    tags: ['Oracle DB', 'MySQL', 'PostgreSQL', 'Redis', 'H2', 'JPA/Hibernate'],
   },
   {
     id: 'security-backend',
@@ -92,6 +92,24 @@ const skills = [
     name: 'Quantum Computing',
     icon: 'Atom',
     tags: ['Qubits', 'Quantum Gates', 'Superposition', 'Entanglement', 'Quantum Algorithms'],
+  },
+  {
+    id: 'distributed-systems',
+    name: 'Distributed Systems',
+    icon: 'Network',
+    tags: ['Microservices Architecture', 'Stateless Services', 'API Gateways', 'Service Discovery'],
+  },
+  {
+    id: 'cloud-devops',
+    name: 'Cloud & DevOps',
+    icon: 'Cloud',
+    tags: ['Azure', 'Docker', 'Kubernetes', 'CI/CD', 'Maven', 'Git/GitHub'],
+  },
+  {
+    id: 'networking',
+    name: 'Networking',
+    icon: 'Wifi',
+    tags: ['HTTP/HTTPS', 'TCP/IP', 'REST Protocols', 'DNS', 'SMTP', 'Client-Server Architecture', 'Socket Basics'],
   },
 ];
 

@@ -7,10 +7,10 @@ const Education = () => {
         {
             id: 1,
             institution: 'Galgotias University',
-            degree: 'B.Tech, Computer Science and Engineering',
+            degree: 'Bachelor Of Technology',
             period: '2022 – 2026',
             location: 'Greater Noida, Uttar Pradesh',
-            grade: '9.31 CGPA (Current)',
+            grade: '9.2 CGPA',
             icon: 'GraduationCap',
         },
         {
@@ -102,17 +102,19 @@ const Education = () => {
                                 <p className="text-body font-semibold text-apple-gray-800 mb-1">
                                     {edu.degree}
                                 </p>
-                                {edu.period && (
-                                    <p className="text-caption font-medium text-apple-blue">{edu.period}</p>
-                                )}
                             </div>
 
                             {/* Grades */}
                             <div className="bg-apple-gray-50 rounded-xl p-4">
                                 {edu.grade ? (
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-body-sm font-medium text-apple-gray-600">CGPA</span>
-                                        <span className="text-body-sm font-bold text-apple-gray-800">{edu.grade}</span>
+                                    <div className="flex justify-between items-center gap-4">
+                                        <span className="text-body-sm font-medium text-apple-gray-600">Computer Science and Engineering</span>
+                                        <div className="text-right">
+                                            <span className="text-body-sm font-bold text-apple-gray-800 block">{edu.grade}</span>
+                                            {edu.period && (
+                                                <span className="text-caption text-apple-gray-400 block">{edu.period}</span>
+                                            )}
+                                        </div>
                                     </div>
                                 ) : (
                                     <div className="space-y-2">

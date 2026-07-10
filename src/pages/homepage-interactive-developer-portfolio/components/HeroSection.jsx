@@ -167,9 +167,9 @@ const HeroSection = () => {
   };
 
   const stats = [
-    { number: '10+', label: 'Projects' },
-    { number: '3+', label: 'Years' },
-    { number: '15+', label: 'Skills' },
+    { number: '15+', label: 'Projects' },
+    { number: '4+', label: 'Years' },
+    { number: '20+', label: 'Skills' },
   ];
 
   const socials = [
@@ -268,10 +268,13 @@ const HeroSection = () => {
               href={social.href}
               target={social.href.startsWith('mailto:') ? undefined : '_blank'}
               rel="noopener noreferrer"
-              className="w-11 h-11 rounded-full bg-apple-gray-50 hover:bg-apple-gray-100 flex items-center justify-center text-apple-gray-500 hover:text-apple-gray-800 transition-all duration-300"
-              title={social.label}
+              className="group h-11 px-3 rounded-full bg-apple-gray-50 hover:bg-apple-gray-100 flex items-center justify-center gap-0 group-hover:gap-2 text-apple-gray-500 hover:text-apple-gray-800 transition-all duration-300 overflow-hidden"
+              style={{ minWidth: '2.75rem' }}
             >
-              <Icon name={social.icon} size={20} />
+              <Icon name={social.icon} size={20} className="flex-shrink-0" />
+              <span className="max-w-0 group-hover:max-w-xs overflow-hidden whitespace-nowrap transition-all duration-300 ease-in-out text-caption font-medium opacity-0 group-hover:opacity-100">
+                {social.label}
+              </span>
             </a>
           ))}
         </motion.div>

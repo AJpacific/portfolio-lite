@@ -24,6 +24,16 @@ const Certifications = () => {
             icon: 'Cpu',
             color: 'text-apple-gray-600',
         },
+        {
+            id: 3,
+            title: 'Alkira Network Infrastructure as-a-Service (Foundational Level)',
+            issuer: 'Alkira, Inc.',
+            date: 'Sep 2026',
+            description: 'Foundational credential covering Network as-a-Service (NaaS), Multi-Cloud Networking, Cloud Infrastructure, and Software-Defined Networking.',
+            link: 'https://www.virtualbadge.io/certificate-validator?credential=fcc0f1ba-9e4b-4c03-b36a-ceb597536ed9',
+            icon: 'Network',
+            color: 'text-apple-gray-600',
+        },
     ];
 
     const containerVariants = {
@@ -79,7 +89,7 @@ const Certifications = () => {
                     <motion.div
                         key={cert.id}
                         variants={itemVariants}
-                        className="card-apple p-8 flex flex-col items-start"
+                        className="card-apple p-8 flex flex-col items-start h-full"
                     >
                         <div className={`w-12 h-12 rounded-2xl bg-apple-gray-50 flex items-center justify-center mb-6 ${cert.color}`}>
                             <Icon name={cert.icon} size={24} />
@@ -104,6 +114,8 @@ const Certifications = () => {
 
                         <a
                             href={cert.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 text-body-sm font-medium text-apple-blue hover:text-apple-blue-hover transition-colors duration-300"
                         >
                             <Icon name="ExternalLink" size={16} />

@@ -111,6 +111,20 @@ const skills = [
     icon: 'Wifi',
     tags: ['HTTP/HTTPS', 'TCP/IP', 'REST Protocols', 'DNS', 'SMTP', 'Client-Server Architecture', 'Socket Basics'],
   },
+  {
+    id: 'naas-networking',
+    name: 'NaaS & Multi-Cloud Networking',
+    icon: 'Network',
+    tags: [
+      'Network as a Service (NaaS)',
+      'Cloud Computing',
+      'Multi-Cloud Networking',
+      'Network Infrastructure',
+      'Software Defined Networking',
+    ],
+    credentialUrl: 'https://www.virtualbadge.io/certificate-validator?credential=fcc0f1ba-9e4b-4c03-b36a-ceb597536ed9',
+    credentialTitle: 'Alkira NaaS Certified',
+  },
 ];
 
 const SkillsLaboratory = () => {
@@ -167,27 +181,42 @@ const SkillsLaboratory = () => {
           <motion.div
             key={skill.id}
             variants={itemVariants}
-            className="card-apple p-6 group"
+            className="card-apple p-6 group flex flex-col justify-between"
           >
-            {/* Icon & Name */}
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-11 h-11 rounded-apple-sm bg-apple-gray-50 flex items-center justify-center text-apple-gray-600">
-                <Icon name={skill.icon} size={22} />
+            <div>
+              {/* Icon & Name */}
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-11 h-11 rounded-apple-sm bg-apple-gray-50 flex items-center justify-center text-apple-gray-600">
+                  <Icon name={skill.icon} size={22} />
+                </div>
+                <h3 className="text-body font-semibold text-apple-gray-800">{skill.name}</h3>
               </div>
-              <h3 className="text-body font-semibold text-apple-gray-800">{skill.name}</h3>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2">
+                {skill.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2.5 py-1 bg-apple-gray-50 text-apple-gray-500 rounded-full text-caption font-medium"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2">
-              {skill.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2.5 py-1 bg-apple-gray-50 text-apple-gray-500 rounded-full text-caption font-medium"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            {skill.credentialUrl && (
+              <a
+                href={skill.credentialUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-1.5 text-caption font-semibold text-apple-blue hover:text-apple-blue-hover transition-colors"
+              >
+                <Icon name="Award" size={14} />
+                <span>{skill.credentialTitle || 'Verify Credential'}</span>
+                <Icon name="ExternalLink" size={12} />
+              </a>
+            )}
           </motion.div>
         ))}
       </motion.div>
